@@ -8,27 +8,32 @@ public class Run {
 
         Scanner sc = new Scanner(System.in);
         int n;
-        Hotel hotel;
-        ArrayList<Hotel> arrHotel = new ArrayList<>();
-        System.out.print("Enter numbers client: ");
+        Hotel person;
+
+        //todo toa mang chua danh sach thong tin khach tro
+        ArrayList<Hotel> personList = new ArrayList<>();
+        System.out.print("Enter quantity client: ");
         n = Integer.parseInt(sc.nextLine());
+
         for (int i = 0; i < n; i++) {
-            hotel = new Hotel();
+            person = new Hotel();
             System.out.println("Enter info client " + (i + 1) + "-------");
-            hotel.InputInfoManage();
-            arrHotel.add(hotel);
+            person.InputInfoManage();
+            personList.add(person);
         }
 
-        for (int i = 0; i < arrHotel.size(); i++) {
+        //todo hien thi danh sach khach
+        for (int i = 0; i < personList.size(); i++) {
             System.out.println("\nInfo client " + (i + 1) + ": ");
-            arrHotel.get(i).displayInfoManage();
+            personList.get(i).displayInfoManage();
         }
 
+        //todo tinh tien phong khi khach trả phòng
         System.out.println("\nEnter identity card client return room: ");
         String tim = sc.nextLine();
-        for (int i = 0; i < arrHotel.size(); i++) {
-            if (arrHotel.get(i).getPerson().getNumCMND().equalsIgnoreCase(tim)) {
-                System.out.println("room money of client = " + arrHotel.get(i).bill());
+        for (int i = 0; i < personList.size(); i++) {
+            if (personList.get(i).getPerson().getNumCMND().equalsIgnoreCase(tim)) {
+                System.out.println("room money of client = " + personList.get(i).bill());
             }
         }
     }
